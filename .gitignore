@@ -2,4 +2,6 @@
 
 bits/
 
-*.exe
+*.exe 
+
+.gitignore
