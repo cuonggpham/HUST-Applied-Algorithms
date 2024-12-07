@@ -28,5 +28,6 @@ void solve(){
 }
 
 int main(){
-    
+    input();
+    solve();
 }
