@@ -35,8 +35,11 @@ void update(int v, int l, int r, int pos, int val){
     }
 }
 
+// v: index của node tren segment tree
+// tl, tr: left & right của doan v dang quan ly
+// l, r: doan dang query
 ll query(int v, int tl, int tr, int l, int r){
-    if(l>r) return 0;
+    if(l>r) return 0; 
     if(tl==l && tr==r){
         return t[v];
     }
