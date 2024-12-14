@@ -3,26 +3,27 @@ using namespace std;
 
 using ll = long long;
 
-int n, s;
+int n, k;
 vector<int> a;
 
 int main()
-{
-    cin >> n >> s;
+{   
+    int n, k;
+    cin >> n >> k;
     a.resize(n); // Resize the vector to have n elements
     for(int i=0; i<n; i++)
     {
         cin >> a[i];
     }
+
     int l=0;
-    ll curr_sum =0;
+    multiset<int> m;
     ll cnt=0;
     for(int r=0; r<n; r++)
-    {
-        curr_sum += a[r];
-        while(curr_sum > s)
-        {
-            curr_sum -= a[l];
+    {   
+        m.insert(a[r]);
+        while(*m.rbegin() - *m.begin() > k){
+            m.erase(m.find(a[l]));
             l++;
         }
         cnt += (r-l+1);

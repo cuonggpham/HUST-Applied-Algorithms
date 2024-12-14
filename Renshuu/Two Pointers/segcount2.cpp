@@ -14,18 +14,19 @@ int main()
     {
         cin >> a[i];
     }
+
     int l=0;
     ll curr_sum =0;
     ll cnt=0;
     for(int r=0; r<n; r++)
     {
         curr_sum += a[r];
-        while(curr_sum > s)
+        while(curr_sum >= s)
         {
+            cnt+= n-r;
             curr_sum -= a[l];
             l++;
         }
-        cnt += (r-l+1);
     }
     cout << cnt;
 }
