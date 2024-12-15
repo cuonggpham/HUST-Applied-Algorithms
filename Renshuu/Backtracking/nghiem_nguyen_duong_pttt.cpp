@@ -1,35 +1,40 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-using ll = long long;
-
 int n, M;
-int x[100];
-int T; // accumulated sum
+int a[10005];// day he so
+int x[10005];// day nghiem
+int t[10005];// tong tien to
+int f = 0;
+int res =0;
 
-int check(int v, int k){
-    if(k < n) return 1;
-    return T + v == M;
-}
+void Try( int k){
+    for( int v = 1; v <= ( M - f -(t[n]-t[k]) )/a[k] ; v++){
+        x[k] = v;
+        f += x[k] * a[k];
 
-void sol(){
-    for(int i=1; i<=n; i++){
-        cout << x[i];
-    }
-    cout << "\n";
-}
-
-void Try(int k){
-    for(int v=1; v<= M-T - n+k; v++){
-        if(check(v,k)){
-            X[k] = v;
-            
+        if( k == n ){
+           if( f == M ) res+=1;
         }
+        else{
+            Try( k+1 );
+        }
+
+        f -= x[k] * a[k];
     }
 }
 
 int main(){
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-
+    // #define NAME "equation."
+    // freopen(NAME"inp","r",stdin);
+    ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+    cin>> n >> M;
+    // int a[n]; khong viet nhu nay
+    for(int i = 1; i<= n;i++){
+        cin>> a[i];
+        t[i]= t[i-1] +a[i];
+    }
+    Try(1);
+    cout << res;
+    return 0;
 }
