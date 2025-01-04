@@ -1,3 +1,6 @@
+// De bai: Cho mot phuong trinh tong tich tich (PTTT) co dang a1*x1 + a2*x2 + ... + an*xn = M voi cac he so a1, a2, ..., an va gia tri M cho truoc.
+// Tim so nghiem nguyen duong cua phuong trinh nay.
+
 #include<bits/stdc++.h>
 using namespace std;
 

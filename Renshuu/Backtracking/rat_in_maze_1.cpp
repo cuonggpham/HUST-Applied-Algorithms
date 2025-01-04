@@ -20,7 +20,7 @@ void Try(int i, int j, string s){
     }
     if(i+1<=n && a[i+1][j]==1){
         s+="D";
-        Try(i+1, j, s);
+        Try(i+1, j, s); 
         s.pop_back();
     }
     if(j+1<=n && a[i][j+1]==1){
